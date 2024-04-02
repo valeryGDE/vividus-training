@@ -1,5 +1,3 @@
 Scenario: Navigate to the SauceDemo website homepage
-Given I am on main application page
-When I wait until element located by `caseSensitiveText(Swag Labs)` appears
-Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
+Given I navigate to the SauceDemo homepage and verify the URL
 When I take screenshot
