@@ -1,1 +1,24 @@
+Composite: Given I navigate to the SauceDemo homepage and verify the URL
+Given I am on main application page
+When I wait until element located by `caseSensitiveText(Swag Labs)` appears
+Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
 
+Composite: When I login with username `$username` and password `$password`
+When I enter `<username>` in field located by `id(user-name)`
+When I enter `<password>` in field located by `id(password)`
+When I click on element located by `id(login-button)`
+And I wait until element located by `id(inventory_container)` appears
+
+Composite: When I click an item with name `$itemName` and verify the page with id `$itemPageId` is loaded
+When I click on an element with the text '<itemName>'
+When I wait until element located by `id(inventory_item_container)` appears
+Then `${current-page-url}` is equal to `https://www.saucedemo.com/inventory-item.html?id=<itemPageId>`
+
+Composite: When I Populate checkout data with first name `$firstName` and last name `$lastName` and zip code `$zipCode`
+When I enter `<firstName>` in field located by `id(first-name)`
+When I enter `<lastName>` in field located by `id(last-name)`
+When I enter `<zipCode>` in field located by `id(postal-code)`
+
+Composite: When I sort the items by `$sortingValue`
+When I click on element located by `xpath(//select[@class='product_sort_container'])`
+When I click on element located by `xpath(//option[text()='<sortingValue>'])`
