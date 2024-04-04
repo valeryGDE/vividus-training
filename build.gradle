@@ -10,3 +10,7 @@ dependencies {
     implementation(group: 'org.vividus', name: 'vividus')
     implementation(group: 'org.vividus', name: 'vividus-plugin-web-app')
 }
+
+tasks.named('runStories').configure {
+    dependsOn 'spotlessApply'
+}
